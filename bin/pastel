@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+
+Signal.trap("INT") { exit 1 }
+
+require 'optparse'
+require 'pastel'
+
+help = <<-EOS
+PASTEL(1)
+
+NAME
+    patel -- color string and print
+
+SYNOPSIS
+    pastel style [style ...] TEXT
+
+DESCRIPTION
+    Use this command line tool to apply colors and style
+    to terminal output.
+
+    All the extra parameters can be applied individually or mixed to
+    create desired effect.
+
+EXAMPLES
+    The command:
+
+        pastel green foo
+
+    will print the 'foo' string to the standard output in green color.
+
+    The command:
+
+        pastel green on_red foo
+
+    will print the 'foo' string to the standard output in green color and
+    on the red background.
+
+    The command:
+
+        echo foo | pastel green
+
+    will read the content 'foo' and pipe it to pastel to print to standard
+    output.
+
+SEE ALSO
+    https://github.com/peter-murach/pastel
+EOS
+
+if ARGV.empty?
+  puts help
+  exit
+end
+
+text = STDIN.tty? ? ARGV.pop : $stdin.read.chomp
+
+pastel = Pastel.new
+
+print pastel.decorate(text, *ARGV.map(&:to_sym))
