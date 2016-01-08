@@ -12,14 +12,18 @@ NAME
     patel -- color string and print
 
 SYNOPSIS
-    pastel style [style ...] TEXT
+    pastel [--enabled] style [style ...] TEXT
 
 DESCRIPTION
-    Use this command line tool to apply colors and style
-    to terminal output.
+    Use this command line tool to apply colors and style to terminal output.
 
-    All the extra parameters can be applied individually or mixed to
-    create desired effect.
+    All the extra parameters can be applied individually or mixed to create
+    desired effect.
+
+    The options:
+    --enabled   This option causes pastel to enforce string coloring
+                regardless whether terminal supports ANSI escape color
+                sequences or not.
 
 EXAMPLES
     The command:
@@ -45,14 +49,18 @@ EXAMPLES
 SEE ALSO
     https://github.com/peter-murach/pastel
 EOS
+opts = {}
 
 if ARGV.empty?
   puts help
   exit
+elsif !(index = ARGV.index('--enabled')).nil?
+  ARGV.delete_at(index)
+  opts = {enabled: true}
 end
 
 text = STDIN.tty? ? ARGV.pop : $stdin.read.chomp
 
-pastel = Pastel.new
+pastel = Pastel.new(opts)
 
 print pastel.decorate(text, *ARGV.map(&:to_sym))

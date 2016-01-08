@@ -31,4 +31,9 @@ RSpec.describe 'pastel command' do
     expect(`echo foo | pastel green`).to match(/\e\[32mfoo\e\[0m/)
     expect($?.exitstatus).to eq(0)
   end
+
+  it "runs with --enabled option" do
+    expect(`pastel --enabled green foo`).to match(/\e\[32mfoo\e\[0m/)
+    expect($?.exitstatus).to eq(0)
+  end
 end
