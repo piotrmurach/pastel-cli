@@ -9,12 +9,19 @@ rvm:
   - 2.0
   - 2.1
   - 2.2
+  - 2.3
   - rbx-2
-  - jruby-19mode
-  - jruby
+  - jruby-9000
   - jruby-head
   - ruby-head
+env:
+  global:
+    - JRUBY_OPTS='--dev -J-Xmx1024M'
 matrix:
+  include:
+    - rvm: jruby-19mode
+    - rvm: jruby-20mode
+    - rvm: jruby-21mode
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
