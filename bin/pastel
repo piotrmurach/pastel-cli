@@ -2,7 +2,6 @@
 
 Signal.trap("INT") { exit 1 }
 
-require 'optparse'
 require 'pastel'
 
 help = <<-EOS
