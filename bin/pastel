@@ -50,7 +50,7 @@ SEE ALSO
 EOS
 opts = {}
 
-if ARGV.empty?
+if ARGV.empty? || ARGV.any? { |a| %w(--help -h).include?(a) }
   puts help
   exit
 elsif !(index = ARGV.index('--enabled')).nil?
