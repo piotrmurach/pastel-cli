@@ -1,12 +1,14 @@
 # encoding: utf-8
 
+$:.unshift File.expand_path("../../bin", __FILE__)
+
 if RUBY_VERSION > '1.9' and (ENV['COVERAGE'] || ENV['TRAVIS'])
   require 'simplecov'
-  require 'coveralls'
+  require 'codeclimate-test-reporter'
 
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
     SimpleCov::Formatter::HTMLFormatter,
-    Coveralls::SimpleCov::Formatter
+    CodeClimate::TestReporter::Formatter
   ]
 
   SimpleCov.start do
