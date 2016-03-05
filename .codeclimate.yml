@@ -1,0 +1,10 @@
+---
+engines:
+  fixme:
+    enabled: true
+ratings:
+  paths:
+    - bin/*
+exclude_paths:
+  - spec/
+  - tasks/
