@@ -1,16 +1,17 @@
 # Pastel CLI
 [![Gem Version](https://badge.fury.io/rb/pastel-cli.svg)][gem]
-[![Build Status](https://secure.travis-ci.org/peter-murach/pastel-cli.svg?branch=master)][travis]
-[![Code Climate](https://codeclimate.com/github/peter-murach/pastel-cli/badges/gpa.svg)][codeclimate]
-[![Coverage Status](https://codeclimate.com/github/peter-murach/pastel-cli/badges/coverage.svg)][codeclimate]
+[![Build Status](https://secure.travis-ci.org/piotrmurach/pastel-cli.svg?branch=master)][travis]
+[![Code Climate](https://codeclimate.com/github/piotrmurach/pastel-cli/badges/gpa.svg)][codeclimate]
+[![Coverage Status](https://coveralls.io/repos/github/piotrmurach/pastel-cli/badge.svg)][coverage]
 
 [gem]: http://badge.fury.io/rb/pastel-cli
-[travis]: http://travis-ci.org/peter-murach/pastel-cli
-[codeclimate]: https://codeclimate.com/github/peter-murach/pastel-cli
+[travis]: http://travis-ci.org/piotrmurach/pastel-cli
+[codeclimate]: https://codeclimate.com/github/piotrmurach/pastel-cli
+[coverage]: https://coveralls.io/github/piotrmurach/pastel-cli
 
 > CLI tool for intuitive terminal output styling
 
-**Pastel CLI** provides terminal tool for [Pastel](https://github.com/peter-murach/pastel).
+**Pastel CLI** provides terminal tool for [Pastel](https://github.com/piotrmurach/pastel).
 
 ## Installation
 
@@ -50,7 +51,7 @@ $ echo 'Unicorns & rainbows!' | pastel green
 
 ## Contributing
 
-1. Fork it ( https://github.com/peter-murach/pastel-cli/fork )
+1. Fork it ( https://github.com/piotrmurach/pastel-cli/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
