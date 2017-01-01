@@ -1,5 +1,10 @@
 # Change log
 
+## [v0.3.0] - 2017-01-01
+
+### Changed
+* Change pastel dependency
+
 ## [v0.2.0] - 2016-03-05
 
 ### Added
