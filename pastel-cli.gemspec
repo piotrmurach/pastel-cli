@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'pastel-cli'
-  spec.version       = '0.2.0'
+  spec.version       = '0.3.0'
   spec.authors       = ['Piotr Murach']
   spec.email         = ['']
   spec.summary       = %q{CLI tool for intuitive terminal output styling}
