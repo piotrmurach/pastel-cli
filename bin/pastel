@@ -2,7 +2,7 @@
 
 Signal.trap("INT") { exit 1 }
 
-require 'pastel'
+require "pastel"
 
 help = <<-EOS
 PASTEL(1)
@@ -46,8 +46,9 @@ EXAMPLES
     output.
 
 SEE ALSO
-    https://github.com/peter-murach/pastel
+    https://github.com/piotrmurach/pastel
 EOS
+
 opts = {}
 
 if ARGV.empty? || ARGV.any? { |a| %w(--help -h).include?(a) }
@@ -60,6 +61,6 @@ end
 
 text = STDIN.tty? ? ARGV.pop : $stdin.read.chomp
 
-pastel = Pastel.new(opts)
+pastel = Pastel.new(**opts)
 
 print pastel.decorate(text, *ARGV.map(&:to_sym))
