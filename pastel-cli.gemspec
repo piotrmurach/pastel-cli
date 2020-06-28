@@ -1,21 +1,28 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 Gem::Specification.new do |spec|
-  spec.name          = 'pastel-cli'
-  spec.version       = '0.3.0'
-  spec.authors       = ['Piotr Murach']
-  spec.email         = ['']
+  spec.name          = "pastel-cli"
+  spec.version       = "0.4.0"
+  spec.authors       = ["Piotr Murach"]
+  spec.email         = ["piotr@piotrmurach.com"]
   spec.summary       = %q{CLI tool for intuitive terminal output styling}
   spec.description   = %q{CLI tool for intuitive terminal output styling}
-  spec.homepage      = ""
+  spec.homepage      = "https://ttytoolkit.org"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0")
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^spec/})
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
+  spec.metadata["bug_tracker_uri"] = "https://github.com/piotrmurach/pastel-cli/issues"
+  spec.metadata["changelog_uri"] = "https://github.com/piotrmurach/pastel-cli/blob/master/CHANGELOG.md"
+  spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/pastel-cli"
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = "https://github.com/piotrmurach/pastel-cli"
 
-  spec.add_dependency 'pastel', '~> 0.7.0'
+  spec.extra_rdoc_files = Dir["README.md", "CHANGELOG.md", "LICENSE.txt"]
+  spec.executables   = %w[pastel]
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.0.0")
 
-  spec.add_development_dependency 'bundler', '>= 1.5.0', '< 2.0'
-  spec.add_development_dependency 'rake'
+  spec.add_dependency "pastel", "~> 0.7.0"
+
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec", "~> 3.0"
 end
