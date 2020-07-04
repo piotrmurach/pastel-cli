@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.executables   = %w[pastel]
   spec.required_ruby_version = Gem::Requirement.new(">= 2.0.0")
 
-  # spec.add_dependency "pastel", "~> 0.7.0"
+  spec.add_dependency "pastel", "~> 0.8"
 
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec", "~> 3.0"
