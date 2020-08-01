@@ -48,8 +48,8 @@ RSpec.describe "pastel command" do
   end
 
   it "displays information when wrong styles are used" do
-    result = `pastel unknown foo`
-    expect(result).to match(/^Bad style or unintialized constant/)
+    output = `pastel unknown foo --enabled`
+    expect(output).to match(/^Bad style or unintialized constant/)
     expect($?.exitstatus).to eq(1)
   end
 end
