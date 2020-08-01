@@ -59,7 +59,7 @@ elsif !(index = ARGV.index('--enabled')).nil?
   opts = {enabled: true}
 end
 
-text = STDIN.tty? ? ARGV.pop : $stdin.read.chomp
+text = STDIN.tty? ? ARGV.pop : $stdin.read
 
 pastel = Pastel.new(**opts)
 

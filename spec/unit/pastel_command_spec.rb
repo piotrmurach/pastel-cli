@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe 'pastel command' do
-  it 'runs without arguments and shows help' do
+RSpec.describe "pastel command" do
+  it "runs without arguments and shows help" do
     expect(`pastel`).to match(/PASTEL\(1\)/)
     expect($?.exitstatus).to eq(0)
   end
@@ -11,12 +11,12 @@ RSpec.describe 'pastel command' do
     expect($?.exitstatus).to eq(0)
   end
 
-  it 'runs with text only' do
+  it "runs with text only" do
     expect(`pastel foo`).to match(/foo/)
     expect($?.exitstatus).to eq(0)
   end
 
-  it 'runs with foreground option' do
+  it "runs with foreground option" do
     expect(`pastel green foo --enabled`).to match(/\e\[32mfoo\e\[0m/)
     expect($?.exitstatus).to eq(0)
   end
@@ -38,6 +38,11 @@ RSpec.describe 'pastel command' do
 
   it "runs with --enabled option" do
     expect(`pastel --enabled green foo`).to match(/\e\[32mfoo\e\[0m/)
+    expect($?.exitstatus).to eq(0)
+  end
+
+  it "preserves multiline content" do
+    expect(`echo "foo\nbar" | pastel green`).to match(/\e\[32m\s*foo\nbar\s*\e\[0m/)
     expect($?.exitstatus).to eq(0)
   end
 end
