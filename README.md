@@ -17,7 +17,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pastel-cli'
+gem "pastel-cli"
 ```
 
 And then execute:
@@ -30,22 +30,39 @@ Or install it yourself as:
 
 ## Usage
 
-To color output in green issue the command:
+To color output in green do:
 
 ```bash
-$ pastel green 'Unicorns & rainbows!'
+$ pastel green "Unicorns & rainbows!"
 ```
 
 You can also provide more than one styling option:
 
 ```bash
-$ pastel green on_red bold 'Unicorns & rainbows!'
+$ pastel green on_red bold "Unicorns & rainbows!"
 ```
 
-Pipe input:
+It supports pipping input:
 
 ```bash
-$ echo 'Unicorns & rainbows!' | pastel green
+$ echo "Unicorns & rainbows!" | pastel green
+```
+
+To see all available styles and color names use `--styles/-s` option:
+
+```bash
+$ pastel -s
+```
+
+This will produce the following in the terminal:
+
+```bash
+Swatch    Name
+◼ pastel  bold
+◼ pastel  dark
+◼ pastel  dim
+◼ pastel  italic
+...
 ```
 
 ## Contributing
@@ -56,6 +73,10 @@ $ echo 'Unicorns & rainbows!' | pastel green
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
+## Code of Conduct
+
+Everyone interacting in the Pastel CLI project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/piotrmurach/tty-option/blob/master/CODE_OF_CONDUCT.md).
+
 ## Copyright
 
-Copyright (c) 2016-2017 Piotr Murach. See LICENSE for further details.
+Copyright (c) 2016 Piotr Murach. See LICENSE for further details.
