@@ -41,8 +41,9 @@ RSpec.describe "pastel command" do
     expect($?.exitstatus).to eq(0)
   end
 
-  it "preserves multiline content" do
-    expect(`echo "foo\nbar" | pastel green --enabled`).to match(/\e\[32m\s*foo\nbar\s*\e\[0m/)
+  it "preserves multiline content", unless: RSpec::Support::OS.windows? do
+    output = `echo "foo\nbar" | pastel green --enabled`
+    expect(output).to match(/\e\[32m\s*foo\nbar\s*\e\[0m/)
     expect($?.exitstatus).to eq(0)
   end
 
