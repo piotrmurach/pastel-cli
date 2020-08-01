@@ -53,7 +53,7 @@ RSpec.describe "pastel command" do
     expect($?.exitstatus).to eq(1)
   end
 
-  it "shows available styles" do
+  it "shows available styles", unless: RSpec::Support::OS.windows? do
     output = `pastel --styles --enabled`
     expect(output).to match(/Swatch    Name\n\e\[1m◼ pastel\e\[0m  bold\n\e\[2m◼ pastel\e\[0m  dark/)
   end
