@@ -63,4 +63,4 @@ text = STDIN.tty? ? ARGV.pop : $stdin.read.chomp
 
 pastel = Pastel.new(**opts)
 
-print pastel.decorate(text, *ARGV.map(&:to_sym))
+print pastel.decorate(text, *ARGV.map(&:to_sym)) + (STDIN.tty? ? "\n" : "")
