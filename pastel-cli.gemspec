@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/piotrmurach/pastel-cli"
 
   spec.extra_rdoc_files = Dir["README.md", "CHANGELOG.md", "LICENSE.txt"]
+  spec.bindir        = "exe"
   spec.executables   = %w[pastel]
   spec.required_ruby_version = Gem::Requirement.new(">= 2.0.0")
 

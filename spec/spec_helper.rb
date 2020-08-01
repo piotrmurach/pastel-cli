@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-$:.unshift File.expand_path("../../bin", __FILE__)
+$:.unshift File.expand_path("../../exe", __FILE__)
 
 if ENV["COVERAGE"] || ENV["TRAVIS"]
   require "simplecov"
