@@ -32,7 +32,7 @@ RSpec.describe 'pastel command' do
   end
 
   it "runs with piped input" do
-    expect(`echo foo | pastel green --enabled`).to match(/\e\[32mfoo\e\[0m/)
+    expect(`echo foo | pastel green --enabled`).to match(/\e\[32mfoo\s*\e\[0m/)
     expect($?.exitstatus).to eq(0)
   end
 
