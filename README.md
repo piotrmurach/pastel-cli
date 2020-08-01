@@ -1,13 +1,12 @@
 # Pastel CLI
+
 [![Gem Version](https://badge.fury.io/rb/pastel-cli.svg)][gem]
 [![Build Status](https://secure.travis-ci.org/piotrmurach/pastel-cli.svg?branch=master)][travis]
-[![Code Climate](https://codeclimate.com/github/piotrmurach/pastel-cli/badges/gpa.svg)][codeclimate]
-[![Coverage Status](https://coveralls.io/repos/github/piotrmurach/pastel-cli/badge.svg)][coverage]
+[![Build status](https://ci.appveyor.com/api/projects/status/lqhbd9sy4rn8xdr2?svg=true)][appveyor]
 
 [gem]: http://badge.fury.io/rb/pastel-cli
 [travis]: http://travis-ci.org/piotrmurach/pastel-cli
-[codeclimate]: https://codeclimate.com/github/piotrmurach/pastel-cli
-[coverage]: https://coveralls.io/github/piotrmurach/pastel-cli
+[appveyor]: https://ci.appveyor.com/project/piotrmurach/pastel-cli
 
 > CLI tool for intuitive terminal output styling
 
