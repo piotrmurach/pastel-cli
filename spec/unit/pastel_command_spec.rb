@@ -52,4 +52,9 @@ RSpec.describe "pastel command" do
     expect(output).to match(/^Bad style or unintialized constant/)
     expect($?.exitstatus).to eq(1)
   end
+
+  it "shows available styles" do
+    output = `pastel --styles --enabled`
+    expect(output).to match(/Swatch    Name\n\e\[1m◼ pastel\e\[0m  bold\n\e\[2m◼ pastel\e\[0m  dark/)
+  end
 end

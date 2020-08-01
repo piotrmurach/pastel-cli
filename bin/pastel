@@ -12,6 +12,7 @@ NAME
 
 SYNOPSIS
     pastel [--enabled] style [style ...] TEXT
+    pastel --styles|-s
 
 DESCRIPTION
     Use this command line tool to apply colors and style to terminal output.
@@ -53,6 +54,15 @@ opts = {}
 
 if ARGV.empty? || ARGV.any? { |a| %w(--help -h).include?(a) }
   puts help
+  exit
+elsif ARGV.any? { |arg| %w[--styles -s].include?(arg) }
+  opts = !ARGV.index("--enabled").nil? ? {enabled: true} : {}
+  pastel = Pastel.new(**opts)
+  puts "Swatch    Name"
+  pastel.styles.keys.each do |name|
+    next if %i[clear reset].include?(name)
+    puts "%s  %s" % [pastel.decorate("◼ pastel", name), name]
+  end
   exit
 elsif !(index = ARGV.index('--enabled')).nil?
   ARGV.delete_at(index)
