@@ -63,4 +63,9 @@ text = STDIN.tty? ? ARGV.pop : $stdin.read
 
 pastel = Pastel.new(**opts)
 
-print pastel.decorate(text, *ARGV.map(&:to_sym)) + (STDIN.tty? ? "\n" : "")
+begin
+  print pastel.decorate(text, *ARGV.map(&:to_sym)) + (STDIN.tty? ? "\n" : "")
+rescue Pastel::InvalidAttributeNameError => error
+  puts error.message
+  exit 1
+end

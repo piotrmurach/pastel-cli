@@ -45,4 +45,10 @@ RSpec.describe "pastel command" do
     expect(`echo "foo\nbar" | pastel green --enabled`).to match(/\e\[32m\s*foo\nbar\s*\e\[0m/)
     expect($?.exitstatus).to eq(0)
   end
+
+  it "displays information when wrong styles are used" do
+    result = `pastel unknown foo`
+    expect(result).to match(/^Bad style or unintialized constant/)
+    expect($?.exitstatus).to eq(1)
+  end
 end
