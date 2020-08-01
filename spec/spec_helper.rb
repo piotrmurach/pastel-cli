@@ -1,19 +1,19 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 $:.unshift File.expand_path("../../bin", __FILE__)
 
-if RUBY_VERSION > '1.9' and (ENV['COVERAGE'] || ENV['TRAVIS'])
-  require 'simplecov'
-  require 'coveralls'
+if ENV["COVERAGE"] || ENV["TRAVIS"]
+  require "simplecov"
+  require "coveralls"
 
-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::HTMLFormatter,
     Coveralls::SimpleCov::Formatter
-  ]
+  ])
 
   SimpleCov.start do
-    command_name 'spec'
-    add_filter 'spec'
+    command_name "spec"
+    add_filter "spec"
   end
 end
 
@@ -34,7 +34,7 @@ RSpec.configure do |config|
   config.warnings = true
 
   if config.files_to_run.one?
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
 
   config.profile_examples = 2
