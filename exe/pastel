@@ -51,6 +51,11 @@ parser = OptionParser.new do |opts|
     puts opts
     exit
   end
+
+  opts.on("-v", "--version", "Prints Pastel version") do
+    puts Pastel::VERSION
+    exit
+  end
 end
 
 begin

@@ -13,6 +13,7 @@ Usage: pastel [options]
     -f, --force                      Forces string coloring regardless of terminal support
     -s, --styles                     Prints all available color and style names
     -h, --help                       Prints this message and exists
+    -v, --version                    Prints Pastel version
     EOS
     expect(`pastel --help`).to eq(out)
     expect($?.exitstatus).to eq(0)
