@@ -5,12 +5,33 @@ Signal.trap("INT") { exit 1 }
 require "pastel"
 require "optparse"
 
+# Return an unescaped version of delimiter
+#
+# @example
+#   unescape("foo\\nbar") => "foo\nbar"
+#
+def unescape(str)
+  escable = {
+    '\n' => "\n",
+    '\r' => "\r",
+    '\t' => "\t",
+    '\f' => "\f",
+    '\v' => "\v"
+  }
+  str.gsub(/\\[nrtfv]/) { |m| escable[m] }
+end
+
 options = {}
 
 ARGV << "-h" if ARGV.empty?
 
 parser = OptionParser.new do |opts|
-  opts.on("-f", "--force", "Forces string coloring regardless whether terminal supports ANSI escape color sequences or not") do
+  opts.on("-d delim", "Specifies character to use to split input coloring") do |val|
+    val = val[1..-1] if val.start_with?("=")
+    options[:eachline] = unescape(val)
+  end
+
+  opts.on("-f", "--force", "Forces string coloring regardless of terminal support") do
     options[:enabled] = true
   end
 
@@ -26,7 +47,7 @@ parser = OptionParser.new do |opts|
     exit
   end
 
-  opts.on("-h", "--help", "Display help") do
+  opts.on("-h", "--help", "Prints this message and exists") do
     puts opts
     exit
   end
