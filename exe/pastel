@@ -3,78 +3,43 @@
 Signal.trap("INT") { exit 1 }
 
 require "pastel"
+require "optparse"
 
-help = <<-EOS
-PASTEL(1)
+options = {}
 
-NAME
-    patel -- color string and print
+ARGV << "-h" if ARGV.empty?
 
-SYNOPSIS
-    pastel [--enabled] style [style ...] TEXT
-    pastel --styles|-s
-
-DESCRIPTION
-    Use this command line tool to apply colors and style to terminal output.
-
-    All the extra parameters can be applied individually or mixed to create
-    desired effect.
-
-    The options:
-    --enabled   This option causes pastel to enforce string coloring
-                regardless whether terminal supports ANSI escape color
-                sequences or not.
-
-EXAMPLES
-    The command:
-
-        pastel green foo
-
-    will print the 'foo' string to the standard output in green color.
-
-    The command:
-
-        pastel green on_red foo
-
-    will print the 'foo' string to the standard output in green color and
-    on the red background.
-
-    The command:
-
-        echo foo | pastel green
-
-    will read the content 'foo' and pipe it to pastel to print to standard
-    output.
-
-SEE ALSO
-    https://github.com/piotrmurach/pastel
-EOS
-
-opts = {}
-
-if ARGV.empty? || ARGV.any? { |a| %w(--help -h).include?(a) }
-  puts help
-  exit
-elsif ARGV.any? { |arg| %w[--styles -s].include?(arg) }
-  opts = !ARGV.index("--enabled").nil? ? {enabled: true} : {}
-  pastel = Pastel.new(**opts)
-  puts "Swatch    Name"
-  pastel.styles.keys.each do |name|
-    next if %i[clear reset].include?(name)
-    puts "%s  %s" % [pastel.decorate("◼ pastel", name), name]
+parser = OptionParser.new do |opts|
+  opts.on("-f", "--force", "Forces string coloring regardless whether terminal supports ANSI escape color sequences or not") do
+    options[:enabled] = true
   end
-  exit
-elsif !(index = ARGV.index('--enabled')).nil?
-  ARGV.delete_at(index)
-  opts = {enabled: true}
+
+  opts.on("-s", "--styles", "Prints all available color and style names") do
+    ops = (ARGV.include?("--force") || ARGV.include?("-f")) ? {enabled: true} : {}
+    ops.merge!(options)
+    pastel = Pastel.new(**ops)
+    puts "Swatch    Name"
+    pastel.styles.keys.each do |name|
+      next if %i[clear reset].include?(name)
+      puts "%s  %s" % [pastel.decorate("◼ pastel", name), name]
+    end
+    exit
+  end
+
+  opts.on("-h", "--help", "Display help") do
+    puts opts
+    exit
+  end
 end
+
+parser.parse!
 
 text = STDIN.tty? ? ARGV.pop : $stdin.read
 
-pastel = Pastel.new(**opts)
+pastel = Pastel.new(**options)
 
 begin
-  print pastel.decorate(text, *ARGV.map(&:to_sym)) + (STDIN.tty? ? "\n" : "")
+  puts pastel.decorate(text, *ARGV.map(&:to_sym))
 rescue Pastel::InvalidAttributeNameError => error
   puts error.message
   exit 1
