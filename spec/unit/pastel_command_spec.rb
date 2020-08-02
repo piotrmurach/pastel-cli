@@ -8,7 +8,7 @@ RSpec.describe "pastel command" do
 
   it "runs with --help/-h flags" do
     out = <<-EOS
-Usage: pastel [options]
+Usage: pastel [options] style [style ...] [text]
     -d delim                         Specifies character to use to split input coloring
     -f, --force                      Forces string coloring regardless of terminal support
     -s, --styles                     Prints all available color and style names

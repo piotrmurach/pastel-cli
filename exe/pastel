@@ -26,6 +26,8 @@ options = {}
 ARGV << "-h" if ARGV.empty?
 
 parser = OptionParser.new do |opts|
+  opts.banner = "Usage: pastel [options] style [style ...] [text]"
+
   opts.on("-d delim", "Specifies character to use to split input coloring") do |val|
     val = val[1..-1] if val.start_with?("=")
     options[:eachline] = unescape(val)
