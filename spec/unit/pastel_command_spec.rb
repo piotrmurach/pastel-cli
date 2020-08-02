@@ -17,6 +17,11 @@ Usage: pastel [options]
     expect($?.exitstatus).to eq(0)
   end
 
+  it "handles invalid option without raising" do
+    output = `pastel --unknown`
+    expect(output).to eq("invalid option: --unknown\n")
+  end
+
   it "runs with text only" do
     expect(`pastel foo`).to match(/foo/)
     expect($?.exitstatus).to eq(0)
