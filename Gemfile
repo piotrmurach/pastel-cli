@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-# gem "pastel", git: "https://github.com/piotrmurach/pastel"
+gem "kramdown", "~> 2.3"
 
 group :test do
   gem "simplecov", "~> 0.12.0"
