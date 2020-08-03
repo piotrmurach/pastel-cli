@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "kramdown", "~> 2.3"
+gem "kramdown", ">= 1.17"
 
 group :test do
   gem "simplecov", "~> 0.12.0"
