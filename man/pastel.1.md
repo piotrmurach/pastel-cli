@@ -2,7 +2,7 @@
 
 ## NAME
 
-`pastel` -- color string and print
+`pastel` -- color and style text in terminal
 
 ## SYNOPSIS
 
@@ -22,6 +22,9 @@ The options are as follows:
 
 `-f` `--force`
 : Forces string coloring regardless whether terminal supports ANSI escape color sequences or not.
+
+`-n`
+: Skips printing the trailing newline character.
 
 `-s`, `--styles`
 : Prints all available color and style names.
