@@ -22,6 +22,7 @@ def unescape(str)
 end
 
 options = {}
+config = { newline: true }
 
 ARGV << "-h" if ARGV.empty?
 
@@ -35,6 +36,10 @@ parser = OptionParser.new do |opts|
 
   opts.on("-f", "--force", "Forces string coloring regardless of terminal support") do
     options[:enabled] = true
+  end
+
+  opts.on("-n", "Skips printing the trailing newline character") do
+    config[:newline] = false
   end
 
   opts.on("-s", "--styles", "Prints all available color and style names") do
@@ -72,7 +77,7 @@ text = STDIN.tty? ? ARGV.pop : $stdin.read
 pastel = Pastel.new(**options)
 
 begin
-  puts pastel.decorate(text, *ARGV.map(&:to_sym))
+  print pastel.decorate(text, *ARGV.map(&:to_sym)) + (config[:newline] ? "\n" : "")
 rescue Pastel::InvalidAttributeNameError => error
   puts error.message
   exit 1

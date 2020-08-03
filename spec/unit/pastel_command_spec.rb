@@ -11,6 +11,7 @@ RSpec.describe "pastel command" do
 Usage: pastel [options] style [style ...] [text]
     -d delim                         Specifies character to use to split input coloring
     -f, --force                      Forces string coloring regardless of terminal support
+    -n                               Skips printing the trailing newline character
     -s, --styles                     Prints all available color and style names
     -h, --help                       Prints this message and exists
     -v, --version                    Prints Pastel version
@@ -51,7 +52,7 @@ Usage: pastel [options] style [style ...] [text]
   end
 
   it "runs with --force option" do
-    expect(`pastel --force green foo`).to match(/\e\[32mfoo\e\[0m/)
+    expect(`pastel --force green foo`).to eq("\e[32mfoo\e[0m\n")
     expect($?.exitstatus).to eq(0)
   end
 
@@ -70,6 +71,11 @@ Usage: pastel [options] style [style ...] [text]
   it "shows available styles", unless: RSpec::Support::OS.windows? do
     output = `pastel --styles -f`
     expect(output).to match(/Swatch    Name\n\e\[1m◼ pastel\e\[0m  bold\n\e\[2m◼ pastel\e\[0m  dark/)
+  end
+
+  it "skips printing newline character" do
+    output = `pastel -fn green foo`
+    expect(output).to eq("\e[32mfoo\e[0m")
   end
 
   describe "split content on delim", unless: RSpec::Support::OS.windows? do
