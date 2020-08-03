@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/piotrmurach/pastel-cli"
 
+  spec.files = ["man/pastel.1"]
   spec.extra_rdoc_files = Dir["README.md", "CHANGELOG.md", "LICENSE.txt"]
   spec.bindir        = "exe"
   spec.executables   = %w[pastel]
