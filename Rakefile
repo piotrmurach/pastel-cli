@@ -22,6 +22,6 @@ namespace :man do
 
   desc "Clean up the man page"
   task :clean do
-    rm "man/pastel.1"
+    rm "man/pastel.1" if File.exist?("man/pastel.1")
   end
 end
