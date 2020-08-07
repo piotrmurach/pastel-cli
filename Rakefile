@@ -25,3 +25,5 @@ namespace :man do
     rm "man/pastel.1" if File.exist?("man/pastel.1")
   end
 end
+
+Rake::Task["build"].enhance(%w[man:clean man:build])
