@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "pastel", "~> 0.8"
 
+  spec.add_development_dependency "kramdown", ">= 1.17"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec", ">= 3.0"
 end
