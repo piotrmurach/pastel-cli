@@ -33,25 +33,25 @@ Or install it yourself as:
 To color output in green do:
 
 ```bash
-$ pastel green "Unicorns & rainbows!"
+$ pastel green " ✔ OK "
 ```
 
-You can also provide more than one styling option:
+Apart from foreground color, you can also provide background and style like so:
 
 ```bash
-$ pastel green on_red bold "Unicorns & rainbows!"
+$ pastel black bold on_green " ✔ OK "
 ```
 
 It supports pipping input:
 
 ```bash
-$ echo "Unicorns & rainbows!" | pastel green
+$ echo -n " ✔ OK " | pastel black bold on_green
 ```
 
 To see all available styles and color names use `--styles/-s` option:
 
 ```bash
-$ pastel -s
+$ pastel --styles
 ```
 
 This will produce the following in the terminal:
