@@ -9,20 +9,29 @@ desc "Run all specs"
 task ci: %w[ spec ]
 
 namespace :man do
-  file "man/pastel.1" => "man/pastel.1.md" do
-    puts "Generating pastel man page"
-    File.open("man/pastel.1", "w+") do |f|
-      data = File.read("man/pastel.1.md")
-      f.write(Kramdown::Document.new(data).to_man)
+  MARKDOWN_FILES = "man/**/*.{md,mkd,mkdn,mdwn,mdown,markdown,text,txt}"
+
+  markdowns = FileList[MARKDOWN_FILES]
+  manpages = markdowns.pathmap("%X")
+
+  markdowns.zip(manpages) do |markdown, manpage|
+    file manpage => markdown do
+      puts "Generating #{manpage.inspect} man page"
+      File.open(manpage, "w") do |out|
+        data = File.read(markdown)
+        out.write(Kramdown::Document.new(data).to_man)
+      end
     end
   end
 
   desc "Build the pastel man page"
-  task :build => "man/pastel.1"
+  task :build => manpages
 
   desc "Clean up the man page"
   task :clean do
-    rm "man/pastel.1" if File.exist?("man/pastel.1")
+    manpages.each do |manpage|
+      rm manpage if File.exist?(manpage)
+    end
   end
 end
 
