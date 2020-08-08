@@ -60,7 +60,7 @@ parser = OptionParser.new do |opts|
   end
 
   opts.on("-v", "--version", "Prints Pastel version") do
-    puts Pastel::VERSION
+    puts "0.4.0 (pastel #{Pastel::VERSION})"
     exit
   end
 end
