@@ -29,20 +29,20 @@ ARGV << "-h" if ARGV.empty?
 parser = OptionParser.new do |opts|
   opts.banner = "Usage: pastel [options] style [style ...] [text]"
 
-  opts.on("-d delim", "Specifies character to use to split input coloring") do |val|
+  opts.on("-d delim", "Specify character to use to split input coloring") do |val|
     val = val[1..-1] if val.start_with?("=")
     options[:eachline] = unescape(val)
   end
 
-  opts.on("-f", "--force", "Forces string coloring regardless of terminal support") do
+  opts.on("-f", "--force", "Force output coloring regardless of terminal support") do
     options[:enabled] = true
   end
 
-  opts.on("-n", "Skips printing the trailing newline character") do
+  opts.on("-n", "Skip printing the trailing newline character") do
     config[:newline] = false
   end
 
-  opts.on("-s", "--styles", "Prints all available color and style names") do
+  opts.on("-s", "--styles", "Print all available color and style names") do
     ops = (ARGV.include?("--force") || ARGV.include?("-f")) ? {enabled: true} : {}
     ops.merge!(options)
     pastel = Pastel.new(**ops)
@@ -54,12 +54,12 @@ parser = OptionParser.new do |opts|
     exit
   end
 
-  opts.on("-h", "--help", "Prints this message and exists") do
+  opts.on("-h", "--help", "Print this message and exit") do
     puts opts
     exit
   end
 
-  opts.on("-v", "--version", "Prints Pastel version") do
+  opts.on("-v", "--version", "Print version information and exit") do
     puts "0.4.0 (pastel #{Pastel::VERSION})"
     exit
   end

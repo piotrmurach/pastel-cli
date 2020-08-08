@@ -9,12 +9,12 @@ RSpec.describe "pastel command" do
   it "runs with --help/-h flags" do
     out = <<-EOS
 Usage: pastel [options] style [style ...] [text]
-    -d delim                         Specifies character to use to split input coloring
-    -f, --force                      Forces string coloring regardless of terminal support
-    -n                               Skips printing the trailing newline character
-    -s, --styles                     Prints all available color and style names
-    -h, --help                       Prints this message and exists
-    -v, --version                    Prints Pastel version
+    -d delim                         Specify character to use to split input coloring
+    -f, --force                      Force output coloring regardless of terminal support
+    -n                               Skip printing the trailing newline character
+    -s, --styles                     Print all available color and style names
+    -h, --help                       Print this message and exit
+    -v, --version                    Print version information and exit
     EOS
     expect(`pastel --help`).to eq(out)
     expect($?.exitstatus).to eq(0)
