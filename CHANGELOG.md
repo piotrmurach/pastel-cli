@@ -1,6 +1,6 @@
 # Change log
 
-## [v0.4.0] - 2020-08-02
+## [v0.4.0] - 2020-08-08
 
 ### Added
 * Add -d option to specify delimiter character for separating content wrapped with styles
