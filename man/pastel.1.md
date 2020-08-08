@@ -2,7 +2,7 @@
 
 ## NAME
 
-`pastel` -- color and style text in terminal
+`pastel` -- color and style text in the terminal
 
 ## SYNOPSIS
 
