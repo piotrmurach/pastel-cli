@@ -6,9 +6,9 @@
 
 ## SYNOPSIS
 
-`pastel` \[--force|-d delim\] style \[style ...\] \[text\]
+`pastel` \[--force\|-d delim\] style \[style ...\] \[text\]
 
-`pastel` --styles|-s
+`pastel` --styles\|-s
 
 ## DESCRIPTION
 
