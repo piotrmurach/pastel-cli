@@ -59,4 +59,6 @@ The pastel readme https://github.com/piotrmurach/pastel
 
 ## AUTHOR
 
-The `pastel` utility is written by Piotr Murach <piotr@piotrmurach.com>
+The `pastel` utility is written by Piotr Murach \<piotr@piotrmurach.com\>
+
+Website: https://ttytoolkit.org
