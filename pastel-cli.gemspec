@@ -5,8 +5,8 @@ Gem::Specification.new do |spec|
   spec.version       = "0.4.0"
   spec.authors       = ["Piotr Murach"]
   spec.email         = ["piotr@piotrmurach.com"]
-  spec.summary       = %q{CLI tool for intuitive terminal output styling}
-  spec.description   = %q{CLI tool for intuitive terminal output styling}
+  spec.summary       = %q{A command-line tool for coloring and styling text in the terminal}
+  spec.description   = %q{A command-line tool for coloring and styling text in the ternimal}
   spec.homepage      = "https://ttytoolkit.org"
   spec.license       = "MIT"
 
