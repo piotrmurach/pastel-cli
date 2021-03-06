@@ -51,4 +51,5 @@ jobs:
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
       - name: Run tests
+        shell: 'script -qec "bash {0}"'
         run: bundle exec rake ci
