@@ -1,11 +1,11 @@
 # Pastel CLI
 
 [![Gem Version](https://badge.fury.io/rb/pastel-cli.svg)][gem]
-[![Actions CI](https://github.com/piotrmurach/pastel-cli/workflows/CI/badge.svg?branch=master)][gh_actions_ci]
+[![Actions CI](https://github.com/piotrmurach/pastel-cli/actions/workflows/ci.yml/badge.svg)][gh_actions_ci]
 [![Build status](https://ci.appveyor.com/api/projects/status/lqhbd9sy4rn8xdr2?svg=true)][appveyor]
 
 [gem]: https://badge.fury.io/rb/pastel-cli
-[gh_actions_ci]: https://github.com/piotrmurach/pastel-cli/actions?query=workflow%3ACI
+[gh_actions_ci]: https://github.com/piotrmurach/pastel-cli/actions/workflows/ci.yml
 [appveyor]: https://ci.appveyor.com/project/piotrmurach/pastel-cli
 
 > CLI tool for intuitive terminal output styling
